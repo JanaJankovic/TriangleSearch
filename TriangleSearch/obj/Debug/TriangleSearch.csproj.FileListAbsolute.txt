@@ -8,3 +8,13 @@ C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\TriangleSearch\obj\De
 C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.exe
 C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.pdb
 C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.TriangleSearchForm.resources
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\bin\Debug\TriangleSearch.exe.config
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\bin\Debug\TriangleSearch.exe
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\bin\Debug\TriangleSearch.pdb
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.TriangleSearchForm.resources
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.Properties.Resources.resources
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.csproj.GenerateResource.cache
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.exe
+C:\Users\Dell\Desktop\github\TriangleSearch\TriangleSearch\obj\Debug\TriangleSearch.pdb
