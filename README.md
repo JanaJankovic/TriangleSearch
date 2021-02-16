@@ -36,4 +36,4 @@ Download the code and run it in the Visual Studio.
 Project is: _finished_
 
 ## Contact
-Created by [@Jana Jankovic](jana.v.jankovic@outlook.com) - feel free to contact me!
+Created by [@JanaJankovic](https://github.com/JanaJankovic) - feel free to contact me!
