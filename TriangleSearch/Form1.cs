@@ -12,19 +12,21 @@ namespace TriangleSearch
 {
     public partial class TriangleSearchForm : Form
     {
-        private const int RADIUS = 300;
-        private const int RADIUS_NODE = 5;
-        private bool generate = false;
+        private const int RADIUS = 300; // radius of circle
+        private const int RADIUS_NODE = 5; // radius of nodes on circle
+        private bool generate = false;  // boolean to trigger reshreshing of panel
         private List<Node> nodes = new List<Node>();
         private SortedList<double, Triangle> triangles = new SortedList<double, Triangle>();
-        private Triangle selectedTriangle;
-        private bool selected = false;
-        private int n;
-        float x, y;
+        private Triangle selectedTriangle; // triangle that is rendered
+        private bool selected = false; // change from default to triangle from list
+        private int n; // number of nodes
+        float x, y; // coordinates of cicrle center
 
         public TriangleSearchForm()
         {
             InitializeComponent();
+
+            //position circle to the middle of panel
             x = this.panelGeometry.Width / 2;
             y = this.panelGeometry.Height / 2;
         }
@@ -33,16 +35,18 @@ namespace TriangleSearch
         {
             nodes.Clear();
             triangles.Clear();
+
             n = Convert.ToInt32(Math.Round(this.numberOfDots.Value, 0));
             
-            if (n >= 4)
+            // minimum number of nodes is 3
+            if (n >= 3)
             {
                 generate = true;
                 selected = false;
-                this.Refresh();
+                this.Refresh(); // refresh canvas
             } else
             {
-                MessageBox.Show("Minimum is 5");
+                MessageBox.Show("Minimum is 3");
             }
              
         }
@@ -55,12 +59,12 @@ namespace TriangleSearch
 
                 renderCircle(graphics);
                 
-
+                //for first initialization
                 if (!selected)
                 {
-                    generateNodes(x, y);
+                    generateNodes(x, y); 
                     generateTriangles();
-                    selectedTriangle = triangles.Values[triangles.Count - 1];
+                    selectedTriangle = triangles.Values[triangles.Count - 1]; // get the biggest triangle from sorted list
 
                 }
 
@@ -114,15 +118,21 @@ namespace TriangleSearch
             for (int i = 0; i < n; i++)
             {
                 Node node = new Node();
+                //generate random angles
                 node.Alpha = random.Next(0, 359);
+
+                //calculate x and y based on angle using trigonometric functions
                 node.X = Convert.ToDouble(x) + Math.Cos(node.Alpha) * RADIUS / 2;
                 node.Y = Convert.ToDouble(y) + Math.Sin(node.Alpha) * RADIUS / 2;
+
+                //add node to list of nodes
                 nodes.Add(node);
             }
         }
 
         private void generateTriangles()
         {
+            //go through all nodes and create triangles
             for(int i = 1; i < n; i++)
             {
                 int j = i - 1;
@@ -134,29 +144,34 @@ namespace TriangleSearch
                         Node n2 = nodes[i];
                         Node n3 = nodes[k];
 
+                        //here it's checked whether nodes are non-collinear
                         if (Triangle.canFormTriangle(n1, n2, n3))
                         {
                             Triangle triangle = new Triangle() { N1 = n1, N2 = n2, N3 = n3 };
                             triangle.Diameter = Triangle.calculateDiameter(triangle);
 
+                            //here it's checked whether there is already triangle with the same diameter
+                            //only unique diameteres are saved
                             if (!triangles.ContainsKey(triangle.Diameter))
-                            
                                 triangles.Add(triangle.Diameter, triangle);
                         }
                     }
                 }
             }
 
+            //updating listbox
             listItems();
         }
 
       
         private void listBoxData_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //get value from selected item
             string item = listBoxData.SelectedItems[0].ToString();
             string[] data = item.Split(new string[] { "   " }, StringSplitOptions.None);
             
+            //recalculate x and y, based on angle
+
             Node n1 = new Node();
             n1.Alpha = Convert.ToInt32(data[1]);
             n1.X = Convert.ToDouble(x) + Math.Cos(n1.Alpha) * RADIUS / 2;
@@ -172,6 +187,8 @@ namespace TriangleSearch
             n3.X = Convert.ToDouble(x) + Math.Cos(n3.Alpha) * RADIUS / 2;
             n3.Y = Convert.ToDouble(y) + Math.Sin(n3.Alpha) * RADIUS / 2;
 
+            //updated selected triangle
+
             selectedTriangle.Diameter = Convert.ToDouble(data[0]);
             selectedTriangle.N1 = n1;
             selectedTriangle.N2 = n2;
@@ -179,6 +196,7 @@ namespace TriangleSearch
 
             selected = true;
 
+            //when selected triangle is changed, its required to refresh the panel
             this.Refresh();
 
         }
@@ -186,7 +204,7 @@ namespace TriangleSearch
         private void listItems()
         {
             this.listBoxData.Items.Clear();
-
+            //take diameter and angles(Alpha) and display them in a row
             for (int i = triangles.Count - 1; i >= 0; i--)
             {
                 
