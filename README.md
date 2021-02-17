@@ -19,8 +19,8 @@ This project is made for the purpose of the interview.
 ![Example3](./screens/Screenshot_3.jpg)
 
 ## Code
-Main logic is in [Form1.cs](https://github.com/JanaJankovic/TriangleSearch/blob/main/TriangleSearch/Form1.cs)
-Besides that I made helper structs:
+Main logic is in [Form1.cs](https://github.com/JanaJankovic/TriangleSearch/blob/main/TriangleSearch/Form1.cs)</br>
+Helper structs :
 * [Node](https://github.com/JanaJankovic/TriangleSearch/blob/main/TriangleSearch/Node.cs)
 * [Triangle](https://github.com/JanaJankovic/TriangleSearch/blob/main/TriangleSearch/Triangle.cs)
 
