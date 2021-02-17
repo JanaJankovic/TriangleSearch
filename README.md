@@ -4,6 +4,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
+* [Code](#code)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
